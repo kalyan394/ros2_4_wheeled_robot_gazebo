@@ -28,12 +28,14 @@
 9. For cloning use below one by navigating to the workspace
     - git clone https://github.com/kalyan394/ros2_mobile_robot.git
     
-## Ignition gazebo version :
+## Gazebo version :
 
-     Ignition Gazebo, version 3.13.0
-Copyright (C) 2018 Open Source Robotics Foundation.
-Released under the Apache 2.0 License.
-                                                          
+   Gazebo multi-robot simulator, version 11.11.0
+Copyright (C) 2012 Open Source Robotics Foundation.
+Released under the Apache 2 License.
+http://gazebosim.org
+
+               
 
 ## System Requirements
 - Ubuntu 20.04
