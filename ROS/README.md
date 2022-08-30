@@ -15,7 +15,7 @@
 3. Next we need to compile all the packages by using
    -  colcon build
 4. To launch gazebo file
-    - ros2 launch rover 2_gazebo_spawn.launch.py
+    - ros2 launch rover 2_gazebo.launch.py
 5.  To launch rviz file
     - ros2 launch rover 1_Rviz.launch.py
  6. To move the in gazebo 
