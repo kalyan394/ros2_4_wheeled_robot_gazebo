@@ -1,52 +1,42 @@
-# ROS2 Ultimate Mobile Robotics Course for Beginners OpenCV
-- This course is going to take your from BASIC ROS2 to Mobile Robotics Domain in Python which can be utilized into Robotics Career oppertunities. Notes are also added as freebies :)
-- This repository is for the course [Discounted_coupon_link](https://www.udemy.com/course/ros2-ultimate-mobile-robotics-course-for-beginners-opencv/?couponCode=APRIL_END) 
-**Note:** Video lectures with in depth explainations about the projects are provided  in the course. You can view the **free preview** in the course as well .
+# ROS2 mobile robot in ignition gazebo
+- This code is for launching the gazebo launch files in Ignition gazebo by having urdf files and also Rviz files.
 
-![alt text](https://github.com/noshluk2/ROS2-Ultimate-Mobile-Robotics-Course/blob/main/Images/thumbnail.png)
-
-### Topics Covered 
-- Custom Workspace 
-- Custom Python Packages
-- Custom Python Nodes
-- Message Publishing Bandwidth and Frequency 
+### Things done
+- Workspace 
 - Creation of Robot through URDF in XML
 - Launch files
-- RVIZ2 and Gazebo Simulation Fundamentals 
-- Adding Virtual Sensors to your Robot
-  - Camera
-  - Lidar
-  - Driving Differential Drive Control
+- RVIZ2 and ignition gazebo
 
-#### Process of Explaonation
-- **All Concepts are explained with Notes**
-![alt text](https://github.com/noshluk2/ROS2-Ultimate-Mobile-Robotics-Course/blob/main/Images/process_explanation.png)
+## Commands I used in Ros2
+1. Before start we need to source the terminal by using following command
+  -   source /opt/ros/foxy/setup.bash
+2. Navigate to work space and enter foolowing command
+   -  . install/setup.bash
+3. Next we need to compile all the packages by using
+   -  colcon build
+4. To launch gazebo file
+    - ros2 launch rover 2_gazebo_spawn.launch.py
+5.  To launch rviz file
+    - ros2 launch rover 1_Rviz.launch.py
+ 6. To move the in gazebo 
+    - ros2 run teleop_twist_keyboard teleop_twist_keyboard 
+    
+7.Everything is succesful in gazebo but in Ignition gazebo its not working
 
-- **Code is then Written and made changes On the Go**
-![alt text](https://github.com/noshluk2/ROS2-Ultimate-Mobile-Robotics-Course/blob/main/Images/code.png)
+8. To select only one package use following command
+      - colcon build --symlink-install --packages-select rover(package_name).
+9. For cloning use below one by navigating to the workspace
+    - git clone https://github.com/kalyan394/ros2_mobile_robot.git
+    
+## Ignition gazebo version :
 
-- **Output is Analyzed**
-![alt text](https://github.com/noshluk2/ROS2-Ultimate-Mobile-Robotics-Course/blob/main/Images/output.png)
-  
-  
-## Projects
-- **Obstacle Avoiding Custom Robots**
-- **Wall Following Robot**
-- **Line Following Prius Car with Computer Vision**
+     Ignition Gazebo, version 3.13.0
+Copyright (C) 2018 Open Source Robotics Foundation.
+Released under the Apache 2.0 License.
+                                                          
 
 ## System Requirements
 - Ubuntu 20.04
 - ROS2 Foxy
 - Visual Studio Code
-
-
-## Instructors
-- **Muhammad Luqman** [Contact Profile](https://www.linkedin.com/in/muhammad-luqman-9b227a11b/)
-
-
-   
-## License
-- Code presented here are Free to use Persoanlly/Commericially/Teaching/Referencing **BUT** without any warranty
-
-
 
