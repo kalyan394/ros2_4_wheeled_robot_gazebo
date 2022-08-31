@@ -169,4 +169,4 @@
     <topic>cmd_vel</topic>
   </plugin>
 </gazebo>
-
+</robot>
