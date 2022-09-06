@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <world name="station">
+    <!-- Physics -->
+    <plugin
+      filename="ignition-gazebo-physics-system"
+      name="ignition::gazebo::systems::Physics">
+    </plugin>
+
+ <plugin
+      filename="ignition-gazebo-scene-broadcaster-system"
+      name="ignition::gazebo::systems::SceneBroadcaster">
+    </plugin>
+
+
+   
+    
+  </world>
+</sdf>

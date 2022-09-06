@@ -1,0 +1,191 @@
+<?xml version="1.0" ?>
+  <robot name="dolly">
+
+
+  <link name="chassis">
+    <visual>
+      <geometry>
+          <box size=".8 0.7 0.1"/>
+      </geometry>
+      <material name="gray">
+        <color rgba=".2 .2 .2 1" />
+      </material>
+    </visual>
+  <inertial>
+            <mass value="2" />
+            <inertia ixx="0.04" ixy="0.0" ixz="0" 
+            iyy="0.17" iyz="0" izz="0.25" />
+    </inertial>
+    
+    <collision>
+      <geometry>
+          <box size=".8 0.7 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <link name="wheel_front_right">
+    <inertial>
+            <mass value="2" />
+            <inertia ixx="1e-3" ixy="0.0" ixz="0" 
+            iyy="1e-3" iyz="0" izz="1e-3" />
+    </inertial>
+
+    <visual>
+      
+      <geometry>
+          <cylinder radius="0.15" length="0.1"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+
+    <collision>
+    
+      <geometry>
+          <cylinder radius="0.15" length="0.1"/>
+      </geometry>
+      <contact_coefficients mu="1" kp="1e+13" kd="1.0"/>
+    </collision>
+  </link>
+
+  <joint name="wheel_front_right_joint" type="continuous">
+    <origin xyz="0.25 0.4 0.0" rpy="1.57 0.0 0.0"/>
+    <parent link="chassis"/>
+    <child link="wheel_front_right"/>
+    <axis xyz="0.0 0.0 1.0"/>
+  </joint>
+
+  <link name="wheel_front_left">
+    <inertial>
+            <mass value="2" />
+            <inertia ixx="1e-3" ixy="0.0" ixz="0" 
+            iyy="1e-3" iyz="0" izz="1e-3" />
+    </inertial>
+
+    <visual>
+      
+      <geometry>
+          <cylinder radius="0.15" length="0.1"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+          <cylinder radius="0.15" length="0.1"/>
+      </geometry>
+      <contact_coefficients mu="1" kp="1e+13" kd="1.0"/>
+    </collision>
+  </link>
+
+  <joint name="wheel_front_left_joint" type="continuous">
+    <origin xyz="0.25 -0.4 0.0" rpy="1.57 0.0 0.0"/>
+    <parent link="chassis"/>
+    <child link="wheel_front_left"/>
+    <axis xyz="0.0 0.0 1.0"/>
+
+  </joint>
+
+<link name="wheel_back_right">
+    <inertial>
+            <mass value="2" />
+            <inertia ixx="1e-3" ixy="0.0" ixz="0" 
+            iyy="1e-3" iyz="0" izz="1e-3" />
+    </inertial>
+
+    <visual>
+      
+      <geometry>
+          <cylinder radius="0.15" length="0.1"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+          <cylinder radius="0.15" length="0.1"/>
+      </geometry>
+      <contact_coefficients mu="1" kp="1e+13" kd="1.0"/>
+    </collision>
+  </link>
+
+  <joint name="wheel_back_right_joint" type="continuous">
+    <origin xyz="-0.25 0.4 0.0" rpy="1.57 0.0 0.0"/>
+    <parent link="chassis"/>
+    <child link="wheel_back_right"/>
+    <axis xyz="0.0 0.0 1.0"/>
+
+  </joint>
+
+  <link name="wheel_back_left">
+    <inertial>
+            <mass value="2" />
+            <inertia ixx="1e-3" ixy="0.0" ixz="0" 
+            iyy="1e-3" iyz="0" izz="1e-3" />
+    </inertial>
+
+    <visual>
+      
+      <geometry>
+          <cylinder radius="0.15" length="0.1"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+          <cylinder radius="0.15" length="0.1"/>
+      </geometry>
+      <contact_coefficients mu="1" kp="1e+13" kd="1.0"/>
+    </collision>
+  </link>
+
+  <joint name="wheel_back_left_joint" type="continuous">
+    <origin xyz="-0.25 -0.4 0.0" rpy="1.57 0.0 0.0"/>
+    <parent link="chassis"/>
+    <child link="wheel_back_left"/>
+    <axis xyz="0.0 0.0 1.0"/>
+
+  </joint>
+
+
+
+  <gazebo>
+    <!--
+        Load Ignition's diff-drive controller, which uses Ignition Transport.
+        The Ignition topics are bridged to ROS with ros_ign_bridge.
+    -->
+   <plugin
+      filename="ignition-gazebo-diff-drive-system"
+      name="ignition::gazebo::systems::DiffDrive">
+
+      <!-- wheels -->
+      <left_joint>left_wheel_joint</left_joint>
+      <right_joint>right_wheel_joint</right_joint>
+
+      <!-- kinematics -->
+      <wheel_separation>1.25</wheel_separation>
+      <wheel_radius>0.3</wheel_radius>
+      <topic>/dolly/cmd_vel</topic>
+      <odom_topic>/dolly/odometry</odom_topic>
+    </plugin>
+
+      </plugin>
+</gazebo>
+
+
+
+
+
+
+
+</robot>
